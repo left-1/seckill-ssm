@@ -1,0 +1,38 @@
+<!-- maven创建的项目中servlet版本默认为2.3(不支持EL表达式) -->
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+  
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring/spring-*.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <!-- 配置DispatcherServlet -->
+  <servlet>
+  	<servlet-name>seckill-dispatcher</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:spring/spring-web.xml</param-value>
+  	</init-param>
+  </servlet>	
+  
+  <!-- 配置springMVC需要加载的配置文件
+  	   spring-dao.xml,spring-service.xml,spring-web.xml 
+  	   Mybatis -> spring -> springMVC
+  -->
+
+  
+  <servlet-mapping>
+  	<servlet-name>seckill-dispatcher</servlet-name>
+  	<!-- 默认匹配所有的请求 -->
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>	   	
+</web-app>
