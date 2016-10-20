@@ -23,14 +23,20 @@
 							<th>库存</th>
 							<th>开始时间</th>
 							<th>结束时间</th>
-							<th>创建时间</th>
-							<th>详情页</th>
+<!-- 							<th>创建时间</th> -->
+<!-- 							<th>详情页</th> -->
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="sk" items="${list}">
 							<tr>
-								<td>${sk.name}</td>
+								<td>
+								
+								<a class="" 
+ 										href="/seckill/seckill/${sk.seckillId}/detail" 
+										target="_blank">${sk.name}</a>
+								
+								</td>
 								<td>${sk.number}</td>
 								<td>
 									<fmt:formatDate value="${sk.startTime}" 
@@ -40,15 +46,15 @@
 									<fmt:formatDate value="${sk.endTime}" 
 										pattern="yyyy-MM-dd HH:mm:ss"/>
 								</td>
-								<td>
-									<fmt:formatDate value="${sk.createTime}" 
-										pattern="yyyy-MM-dd HH:mm:ss"/>
-								</td>
-								<td>
-									<a class="btn btn-info" 
-										href="/seckill/seckill/${sk.seckillId}/detail"
-										target="_blank">link</a>
-								</td>
+<!-- 								<td> -->
+<%-- 									<fmt:formatDate value="${sk.createTime}"  --%>
+<%-- 										pattern="yyyy-MM-dd HH:mm:ss"/> --%>
+<!-- 								</td> -->
+<!-- 								<td> -->
+<!-- 									<a class="btn btn-info"  -->
+<%-- 										href="/seckill/seckill/${sk.seckillId}/detail" --%>
+<!-- 										target="_blank">link</a> -->
+<!-- 								</td> -->
 							</tr>
 						</c:forEach>
 					</tbody>
